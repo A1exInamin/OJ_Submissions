@@ -2,45 +2,31 @@
  * ISBN
  * Time Limit: 1000/1000MS (C++/Others) Memory Limit: 65536/65536KB (C++/Others)
  *
- * Result: Wrong Answer
+ * Result: Accepted
  * Time: 0ms
- * Memory: 584KB
+ * Memory: 576KB
  */
 #include <bits/stdc++.h>
 using namespace std;
 
-int func(char a)
-{
-  return a - '0';
-}
-
 int main()
 {
-  char isbn[13];
-  while (cin >> isbn)
+  string str;
+  while (cin >> str)
   {
-    int chksum = 0;
-    int cnt = 1;
-    for (int i = 0; i < 12; i++)
-    {
-      if (isbn[i] == '-')
-        continue;
-      else
-      {
-        chksum += cnt * (isbn[i] - '0');
-        cnt++;
-      }
-    }
-    chksum %= 11;
-    if (chksum + '0' == isbn[12])
-    {
+    int sum = (str[0] - '0') * 1 + (str[2] - '0') * 2 + (str[3] - '0') * 3 + (str[4] - '0') * 4 + (str[6] - '0') * 5 + (str[7] - '0') * 6 + (str[8] - '0') * 7 + (str[9] - '0') * 8 + (str[10] - '0') * 9;
+    int res = sum % 11;
+    char c;
+    if (res == 10)
+      c = 'X';
+    else c = res + '0';
+    if (str[12] == c)
       cout << "Right" << endl;
-    }
     else
     {
-      isbn[12] = chksum + '0';
-      isbn[13] = '\0';
-      cout << isbn << endl;
+      for (int i = 0; i < 12; i++)
+        cout << str[i];
+      cout << c << endl;
     }
   }
 }
