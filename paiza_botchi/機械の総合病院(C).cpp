@@ -1,7 +1,7 @@
 /**
  * 機械の総合病院 [MISSION LEVEL: C]
  * https://paiza.jp/botchi/challenges/botchi_c_3002
- * 状態：未解決
+ * 状態：CLEAR
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -22,7 +22,7 @@ int main()
     if (pwd[i] >= 'A' && pwd[i] <= 'Z')
       pwd[i] += 32;
   }
-  if (len <= 6)
+  if (len < 6)
     invalid();
   int flag = 0;
   for (int i = 0; i < len; i++)
@@ -32,7 +32,7 @@ int main()
     else if (pwd[i] >= '0' && pwd[i] <= '9')
       flag += 2;
   }
-  if (flag <= len)
+  if (flag == len || flag == len * 2)
     invalid();
   flag = 0;
   for (int i = 1; i < len; i++)
