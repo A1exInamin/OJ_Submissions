@@ -3,3 +3,7 @@
 in.txt
 out.txt
 
+.vscode
+.vscode/*
+
+*.dSYM
